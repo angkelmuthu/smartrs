@@ -11,6 +11,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+
+-- Dumping database structure for smartrs
+CREATE DATABASE IF NOT EXISTS `smartrs` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `smartrs`;
+
 -- Dumping structure for table smartrs.m_pasien
 CREATE TABLE IF NOT EXISTS `m_pasien` (
   `nomr` int(11) NOT NULL,
@@ -64,9 +69,9 @@ CREATE TABLE IF NOT EXISTS `tbl_menu` (
   `is_main_menu` int(11) NOT NULL,
   `is_aktif` enum('y','n') NOT NULL COMMENT 'y=yes,n=no',
   PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
--- Dumping data for table smartrs.tbl_menu: ~8 rows (approximately)
+-- Dumping data for table smartrs.tbl_menu: ~6 rows (approximately)
 /*!40000 ALTER TABLE `tbl_menu` DISABLE KEYS */;
 INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_aktif`) VALUES
 	(1, 'KELOLA MENU', 'kelolamenu', 'fal fa-server', 15, 'y'),
@@ -74,9 +79,7 @@ INSERT INTO `tbl_menu` (`id_menu`, `title`, `url`, `icon`, `is_main_menu`, `is_a
 	(3, 'level PENGGUNA', 'userlevel', 'fal fa-users', 15, 'y'),
 	(9, 'Contoh Form', 'welcome/form', 'fal fa-id-card', 15, 'y'),
 	(11, 'CRUD GEN', 'Crudgen', 'fal fa-users', 15, 'y'),
-	(14, 'Master Pasien', 'master_pasien', 'fal fa-user-circle', 0, 'y'),
-	(15, 'SETTING', '#', 'fal fa-cogs', 0, 'y'),
-	(16, 'pendaftaran', 'pendaftaran', 'fal fa-calendar-plus', 0, 'y');
+	(15, 'SETTING', '#', 'fal fa-cogs', 0, 'y');
 /*!40000 ALTER TABLE `tbl_menu` ENABLE KEYS */;
 
 -- Dumping structure for table smartrs.tbl_setting
