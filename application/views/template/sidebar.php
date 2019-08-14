@@ -57,7 +57,7 @@
                     // display sub menu
                     echo '
                             <li>
-                                <a href="' . $menu->url . '" title="' . strtoupper($menu->title) . '" data-filter-tags="' . strtoupper($menu->title) . '">
+                                <a href="#" title="' . strtoupper($menu->title) . '" data-filter-tags="' . strtoupper($menu->title) . '">
                                     <i class="' . $menu->icon . '"></i>
                                     <span class="nav-link-text" data-i18n="nav.' . strtoupper($menu->url) . '">' . strtoupper($menu->title) . '</span>
                                 </a>
@@ -65,7 +65,7 @@
                     foreach ($submenu->result() as $sub) {
                         echo '
                                     <li>
-                                        <a href="' . $sub->url . '" title="' . strtoupper($sub->title) . '" data-filter-tags="' . strtoupper($sub->title) . '">
+                                        <a href="' . base_url($sub->url) . '" title="' . strtoupper($sub->title) . '" data-filter-tags="' . strtoupper($sub->title) . '">
                                             <i class="' . $sub->icon . '"></i>
                                             <span class="nav-link-text" data-i18n="nav.' . $sub->url . '">' . strtoupper($sub->title) . '</span>
                                         </a>
@@ -76,7 +76,7 @@
                 } else {
                     // display main menu
                     echo '<li>
-                    <a href="' . $menu->url . '" title="' . strtoupper($menu->title) . '" data-filter-tags="' . strtoupper($menu->title) . '">
+                    <a href="' . base_url($menu->url) . '" title="' . strtoupper($menu->title) . '" data-filter-tags="' . strtoupper($menu->title) . '">
                     <i class="' . $menu->icon . '"></i>
                     <span class="nav-link-text" data-i18n="nav.' . strtoupper($menu->url) . '">' . strtoupper($menu->title) . '</span></a>
                     </li>';
