@@ -42,7 +42,7 @@ class Pendaftaran extends CI_Controller
             'total_rows' => $config['total_rows'],
             'start' => $start,
         );
-        $this->template->load('template','pendaftaran/t_daftar_list', $data);
+        $this->template->load('template', 'pendaftaran/t_daftar_list', $data);
     }
 
     public function read($id)
@@ -50,16 +50,16 @@ class Pendaftaran extends CI_Controller
         $row = $this->Pendaftaran_model->get_by_id($id);
         if ($row) {
             $data = array(
-		'noreg' => $row->noreg,
-		'nomr' => $row->nomr,
-		'kddatang' => $row->kddatang,
-		'kdpoli' => $row->kdpoli,
-		'kddokter' => $row->kddokter,
-		'kdbayar' => $row->kdbayar,
-		'tglreg' => $row->tglreg,
-		'regby' => $row->regby,
-	    );
-            $this->template->load('template','pendaftaran/t_daftar_read', $data);
+                'noreg' => $row->noreg,
+                'nomr' => $row->nomr,
+                'kddatang' => $row->kddatang,
+                'kdpoli' => $row->kdpoli,
+                'kddokter' => $row->kddokter,
+                'kdbayar' => $row->kdbayar,
+                'tglreg' => $row->tglreg,
+                'regby' => $row->regby,
+            );
+            $this->template->load('template', 'pendaftaran/t_daftar_read', $data);
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-warning-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -74,16 +74,16 @@ class Pendaftaran extends CI_Controller
         $data = array(
             'button' => 'Create',
             'action' => site_url('pendaftaran/create_action'),
-	    'noreg' => set_value('noreg'),
-	    'nomr' => set_value('nomr'),
-	    'kddatang' => set_value('kddatang'),
-	    'kdpoli' => set_value('kdpoli'),
-	    'kddokter' => set_value('kddokter'),
-	    'kdbayar' => set_value('kdbayar'),
-	    'tglreg' => set_value('tglreg'),
-	    'regby' => set_value('regby'),
-	);
-        $this->template->load('template','pendaftaran/t_daftar_form', $data);
+            'noreg' => set_value('noreg'),
+            'nomr' => set_value('nomr'),
+            'kddatang' => set_value('kddatang'),
+            'kdpoli' => set_value('kdpoli'),
+            'kddokter' => set_value('kddokter'),
+            'kdbayar' => set_value('kdbayar'),
+            'tglreg' => set_value('tglreg'),
+            'regby' => set_value('regby'),
+        );
+        $this->template->load('template', 'pendaftaran/t_daftar_form', $data);
     }
 
     public function create_action()
@@ -94,14 +94,15 @@ class Pendaftaran extends CI_Controller
             $this->create();
         } else {
             $data = array(
-		'nomr' => $this->input->post('nomr',TRUE),
-		'kddatang' => $this->input->post('kddatang',TRUE),
-		'kdpoli' => $this->input->post('kdpoli',TRUE),
-		'kddokter' => $this->input->post('kddokter',TRUE),
-		'kdbayar' => $this->input->post('kdbayar',TRUE),
-		'tglreg' => $this->input->post('tglreg',TRUE),
-		'regby' => $this->input->post('regby',TRUE),
-	    );
+                'noreg' => $this->input->post('noreg', TRUE),
+                'nomr' => $this->input->post('nomr', TRUE),
+                'kddatang' => $this->input->post('kddatang', TRUE),
+                'kdpoli' => $this->input->post('kdpoli', TRUE),
+                'kddokter' => $this->input->post('kddokter', TRUE),
+                'kdbayar' => $this->input->post('kdbayar', TRUE),
+                'tglreg' => $this->input->post('tglreg', TRUE),
+                'regby' => $this->input->post('regby', TRUE),
+            );
 
             $this->Pendaftaran_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
@@ -120,16 +121,16 @@ class Pendaftaran extends CI_Controller
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('pendaftaran/update_action'),
-		'noreg' => set_value('noreg', $row->noreg),
-		'nomr' => set_value('nomr', $row->nomr),
-		'kddatang' => set_value('kddatang', $row->kddatang),
-		'kdpoli' => set_value('kdpoli', $row->kdpoli),
-		'kddokter' => set_value('kddokter', $row->kddokter),
-		'kdbayar' => set_value('kdbayar', $row->kdbayar),
-		'tglreg' => set_value('tglreg', $row->tglreg),
-		'regby' => set_value('regby', $row->regby),
-	    );
-            $this->template->load('template','pendaftaran/t_daftar_form', $data);
+                'noreg' => set_value('noreg', $row->noreg),
+                'nomr' => set_value('nomr', $row->nomr),
+                'kddatang' => set_value('kddatang', $row->kddatang),
+                'kdpoli' => set_value('kdpoli', $row->kdpoli),
+                'kddokter' => set_value('kddokter', $row->kddokter),
+                'kdbayar' => set_value('kdbayar', $row->kdbayar),
+                'tglreg' => set_value('tglreg', $row->tglreg),
+                'regby' => set_value('regby', $row->regby),
+            );
+            $this->template->load('template', 'pendaftaran/t_daftar_form', $data);
         } else {
             $this->session->set_flashdata('message', '<div class="alert bg-warning-500" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -147,14 +148,14 @@ class Pendaftaran extends CI_Controller
             $this->update($this->input->post('noreg', TRUE));
         } else {
             $data = array(
-		'nomr' => $this->input->post('nomr',TRUE),
-		'kddatang' => $this->input->post('kddatang',TRUE),
-		'kdpoli' => $this->input->post('kdpoli',TRUE),
-		'kddokter' => $this->input->post('kddokter',TRUE),
-		'kdbayar' => $this->input->post('kdbayar',TRUE),
-		'tglreg' => $this->input->post('tglreg',TRUE),
-		'regby' => $this->input->post('regby',TRUE),
-	    );
+                'nomr' => $this->input->post('nomr', TRUE),
+                'kddatang' => $this->input->post('kddatang', TRUE),
+                'kdpoli' => $this->input->post('kdpoli', TRUE),
+                'kddokter' => $this->input->post('kddokter', TRUE),
+                'kdbayar' => $this->input->post('kdbayar', TRUE),
+                'tglreg' => $this->input->post('tglreg', TRUE),
+                'regby' => $this->input->post('regby', TRUE),
+            );
 
             $this->Pendaftaran_model->update($this->input->post('noreg', TRUE), $data);
             $this->session->set_flashdata('message', '<div class="alert bg-info-500" role="alert">
@@ -187,16 +188,16 @@ class Pendaftaran extends CI_Controller
 
     public function _rules()
     {
-	$this->form_validation->set_rules('nomr', 'nomr', 'trim|required');
-	$this->form_validation->set_rules('kddatang', 'kddatang', 'trim|required');
-	$this->form_validation->set_rules('kdpoli', 'kdpoli', 'trim|required');
-	$this->form_validation->set_rules('kddokter', 'kddokter', 'trim|required');
-	$this->form_validation->set_rules('kdbayar', 'kdbayar', 'trim|required');
-	$this->form_validation->set_rules('tglreg', 'tglreg', 'trim|required');
-	$this->form_validation->set_rules('regby', 'regby', 'trim|required');
+        $this->form_validation->set_rules('nomr', 'nomr', 'trim|required');
+        $this->form_validation->set_rules('kddatang', 'kddatang', 'trim|required');
+        $this->form_validation->set_rules('kdpoli', 'kdpoli', 'trim|required');
+        $this->form_validation->set_rules('kddokter', 'kddokter', 'trim|required');
+        $this->form_validation->set_rules('kdbayar', 'kdbayar', 'trim|required');
+        $this->form_validation->set_rules('tglreg', 'tglreg', 'trim|required');
+        $this->form_validation->set_rules('regby', 'regby', 'trim|required');
 
-	$this->form_validation->set_rules('noreg', 'noreg', 'trim');
-	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        $this->form_validation->set_rules('noreg', 'noreg', 'trim|required');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
     public function excel()
@@ -221,28 +222,28 @@ class Pendaftaran extends CI_Controller
 
         $kolomhead = 0;
         xlsWriteLabel($tablehead, $kolomhead++, "No");
-	xlsWriteLabel($tablehead, $kolomhead++, "Nomr");
-	xlsWriteLabel($tablehead, $kolomhead++, "Kddatang");
-	xlsWriteLabel($tablehead, $kolomhead++, "Kdpoli");
-	xlsWriteLabel($tablehead, $kolomhead++, "Kddokter");
-	xlsWriteLabel($tablehead, $kolomhead++, "Kdbayar");
-	xlsWriteLabel($tablehead, $kolomhead++, "Tglreg");
-	xlsWriteLabel($tablehead, $kolomhead++, "Regby");
+        xlsWriteLabel($tablehead, $kolomhead++, "Nomr");
+        xlsWriteLabel($tablehead, $kolomhead++, "Kddatang");
+        xlsWriteLabel($tablehead, $kolomhead++, "Kdpoli");
+        xlsWriteLabel($tablehead, $kolomhead++, "Kddokter");
+        xlsWriteLabel($tablehead, $kolomhead++, "Kdbayar");
+        xlsWriteLabel($tablehead, $kolomhead++, "Tglreg");
+        xlsWriteLabel($tablehead, $kolomhead++, "Regby");
 
-	foreach ($this->Pendaftaran_model->get_all() as $data) {
+        foreach ($this->Pendaftaran_model->get_all() as $data) {
             $kolombody = 0;
 
             //ubah xlsWriteLabel menjadi xlsWriteNumber untuk kolom numeric
             xlsWriteNumber($tablebody, $kolombody++, $nourut);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->nomr);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->kddatang);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->kdpoli);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->kddokter);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->kdbayar);
-	    xlsWriteLabel($tablebody, $kolombody++, $data->tglreg);
-	    xlsWriteNumber($tablebody, $kolombody++, $data->regby);
+            xlsWriteNumber($tablebody, $kolombody++, $data->nomr);
+            xlsWriteNumber($tablebody, $kolombody++, $data->kddatang);
+            xlsWriteNumber($tablebody, $kolombody++, $data->kdpoli);
+            xlsWriteNumber($tablebody, $kolombody++, $data->kddokter);
+            xlsWriteNumber($tablebody, $kolombody++, $data->kdbayar);
+            xlsWriteLabel($tablebody, $kolombody++, $data->tglreg);
+            xlsWriteNumber($tablebody, $kolombody++, $data->regby);
 
-	    $tablebody++;
+            $tablebody++;
             $nourut++;
         }
 
@@ -260,9 +261,8 @@ class Pendaftaran extends CI_Controller
             'start' => 0
         );
 
-        $this->load->view('pendaftaran/t_daftar_doc',$data);
+        $this->load->view('pendaftaran/t_daftar_doc', $data);
     }
-
 }
 
 /* End of file Pendaftaran.php */
