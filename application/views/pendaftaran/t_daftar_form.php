@@ -24,12 +24,12 @@
                                 <tr>
                                     <td width='200'>Nomr <?php echo form_error('nomr') ?></td>
                                     <td>
-                                        <input type="text" class="form-control" name="nomr" id="nomr" placeholder="Nomr" value="<?php echo $nomr; ?>" />
+                                        <input type="text" class="form-control" name="nomr" id="nomr" placeholder="Nomr" value="<?php echo $this->uri->segment('3'); ?>" />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Kddatang <?php echo form_error('kddatang') ?></td>
-                                    <td><input type="text" class="form-control" name="kddatang" id="kddatang" placeholder="Kddatang" value="<?php echo $kddatang; ?>" /></td>
+                                    <td><?php echo cmb_dinamis('kddatang', 'm_jenisdatang', 'jenisdatang', 'kdjenisdatang') ?></td>
                                 </tr>
                                 <tr>
                                     <td width='200'>Poliklinik <?php echo form_error('kdpoli') ?></td>

@@ -25,9 +25,9 @@
                                             <?php
                                             if ($q <> '') {
                                                 ?>
-                                                <div class="input-group-prepend">
-                                                    <a href="<?php echo site_url('master_pasien'); ?>" class="btn btn-danger waves-effect waves-themed">Reset</a>
-                                                </div>
+                                            <div class="input-group-prepend">
+                                                <a href="<?php echo site_url('master_pasien'); ?>" class="btn btn-danger waves-effect waves-themed">Reset</a>
+                                            </div>
                                             <?php
                                             }
                                             ?>
@@ -60,16 +60,18 @@
                                 <tbody><?php
                                         foreach ($master_pasien_data as $master_pasien) {
                                             ?>
-                                        <tr>
-                                            <td width="10px"><?php echo ++$start ?></td>
-                                            <td><?php echo $master_pasien->nomr ?></td>
-                                            <td><?php echo $master_pasien->nama ?></td>
-                                            <td><?php echo $master_pasien->nik ?></td>
-                                            <td><?php echo $master_pasien->nocard ?></td>
-                                            <td><?php echo $master_pasien->alamat ?></td>
-                                            <td style="text-align:center" width="200px">
-                                                <?php
+                                    <tr>
+                                        <td width="10px"><?php echo ++$start ?></td>
+                                        <td><?php echo $master_pasien->nomr ?></td>
+                                        <td><?php echo $master_pasien->nama ?></td>
+                                        <td><?php echo $master_pasien->nik ?></td>
+                                        <td><?php echo $master_pasien->nocard ?></td>
+                                        <td><?php echo $master_pasien->alamat ?></td>
+                                        <td style="text-align:center" width="200px">
+                                            <?php
                                                 echo anchor(site_url('master_pasien/read/' . $master_pasien->nomr), '<i class="fal fa-eye" aria-hidden="true"></i>', 'class="btn btn-info btn-xs waves-effect waves-themed"');
+                                                echo '  ';
+                                                echo anchor(site_url('pendaftaran/create/' . $master_pasien->nomr), '<i class="fal fa-eye" aria-hidden="true"></i>', 'class="btn btn-info btn-xs waves-effect waves-themed"');
                                                 echo '  ';
                                                 echo anchor(site_url('master_pasien/update/' . $master_pasien->nomr), '<i class="fal fa-pencil" aria-hidden="true"></i>', 'class="btn btn-warning btn-xs waves-effect waves-themed"');
                                                 echo '  ';
@@ -95,8 +97,8 @@
     </div>
 </div>';
                                                 ?>
-                                            </td>
-                                        </tr>
+                                        </td>
+                                    </tr>
                                     <?php
                                     }
                                     ?>
